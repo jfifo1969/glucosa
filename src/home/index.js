@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { LineChart, Line, CartesianGrid, YAxis } from "recharts";
+import { LineChart, Line, CartesianGrid, YAxis , ResponsiveContainer} from "recharts";
 
 import "./styles.css";
 import Imagen from "../assets/1.png";
 
 const Home = () => {
   const [glucosa, setGlucosa] = useState(0);
-  const [data, setData] = useState([{val:100}]);
+  const [data, setData] = useState([{ val: 100 }]);
 
   useEffect(() => {
     const interval = setInterval(function () {
       const temp = glucosaFunction(80, 275);
 
-      setData(array => [...array,{val:temp}].slice(-10));
+      setData((array) => [...array, { val: temp }].slice(-10));
       return setGlucosa(temp);
     }, 2000);
     return () => {
@@ -33,14 +33,19 @@ const Home = () => {
           </a>
         </ul>
       </header>
-      <section class ="graphic-text" >
-        <h3>Tu nivel de glucosa es de: <br/>{glucosa}</h3>
-        <LineChart width={600} height={300} data={data}>
-          <Line type="monotone" dataKey="val" stroke="#8884d8" />
-          <CartesianGrid stroke="#ccc" />
-          {/* <XAxis dataKey="name" /> */}
-          <YAxis />
-        </LineChart>
+      <section class="graphic-text">
+        <h3>
+          Tu nivel de glucosa es de: <br />
+          {glucosa}
+        </h3>
+        <ResponsiveContainer  width="100%" height={400}>
+          <LineChart width={600} height={300} data={data}>
+            <Line type="monotone" dataKey="val" stroke="#8884d8" />
+            <CartesianGrid stroke="#ccc" />
+            {/* <XAxis dataKey="name" /> */}
+            <YAxis />
+          </LineChart>
+        </ResponsiveContainer>
       </section>
       <footer>
         <ul class="footer-left">
