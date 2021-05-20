@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Logo from '../assets/2.jpg'
-import reportWebVitals from "../reportWebVitals";
 
 const Login = () => {
   let history = useHistory();
@@ -13,6 +12,7 @@ const Login = () => {
     { nombre: "JulianForero", contraseña: "1002397054" },
     { nombre: "DavidArevalo", contraseña: "2165551" },
     { nombre: "JuanaFonseca", contraseña: "3167812961" },
+    { nombre: "SantiagoForero", contraseña: "3175027021" },
   ];
 
   const validacion = () => {

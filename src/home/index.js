@@ -1,21 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { LineChart, Line, CartesianGrid, XAxis, YAxis } from "recharts";
+import { LineChart, Line, CartesianGrid, YAxis } from "recharts";
 
 import "./styles.css";
 import Imagen from "../assets/1.png";
 
 const Home = () => {
-  const [time, setTime] = useState(Date.now());
   const [glucosa, setGlucosa] = useState(0);
-  //   const data = [{ name: "Page A", uv: 400, pv: 2400, amt: 2400 }];
   const [data, setData] = useState([{val:100}]);
 
   useEffect(() => {
     const interval = setInterval(function () {
       const temp = glucosaFunction(80, 275);
-    //   const listTemp = data
-    //   listTemp.push({ val: temp })
-    //   console.log(listTemp)
+
       setData(array => [...array,{val:temp}].slice(-10));
       return setGlucosa(temp);
     }, 2000);
